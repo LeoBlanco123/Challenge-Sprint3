@@ -52,4 +52,4 @@ escrever "localhost:8080/empresas" para rodar na Web.
 ![arquitetura.png](documentacao%2Fdiagrama-classes%2Farquitetura.png)
 
 # Link do Video
-https://www.youtube.com/watch?v=V7Ntv5wPsF0
+[https://www.youtube.com/watch?v=V7Ntv5wPsF0](https://www.youtube.com/watch?v=Wb2HLcZJjNk)

@@ -58,7 +58,7 @@ public class HistoricoInteracoesController {
     public ModelAndView salvarHistorico(@Valid @ModelAttribute("historico") HistoricoInteracoes historico,
                                         BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            // Adiciona logs aqui para verificação
+            // Log para verificar erros de validação
             System.out.println("Erros de validação: " + bindingResult.getAllErrors());
 
             ModelAndView mv = new ModelAndView("criar_historico");

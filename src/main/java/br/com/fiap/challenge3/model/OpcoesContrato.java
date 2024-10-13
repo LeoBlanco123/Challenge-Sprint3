@@ -1,17 +1,16 @@
 package br.com.fiap.challenge3.model;
 
+import lombok.Getter;
+
+@Getter
 public enum OpcoesContrato {
-    SIM("Sim"),
-    NAO("Não");
+    SIM("opcoesContrato.sim"),
+    NAO("opcoesContrato.nao");
 
     private final String descricao;
 
     OpcoesContrato(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getDescricao() {
-        return descricao;
     }
 
     @Override

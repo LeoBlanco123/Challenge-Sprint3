@@ -26,8 +26,8 @@ public class Empresas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 4, max = 255, message = "O nome da nova empresa deve ter, ao menos, 4 caracteres e, no máximo, 255")
-    @NotEmpty(message = "O nome não pode estar vazio")
+    @Size(min = 4, max = 255)
+    @NotEmpty
     private String nome;
 
     @Enumerated(EnumType.STRING)
@@ -36,11 +36,11 @@ public class Empresas {
     @Enumerated(EnumType.STRING)
     private OpcoesSetor setor;
 
-    @NotEmpty(message = "A localização geográfica não pode estar vazia")
+    @NotEmpty
     private String localizacaoGeografica;
 
-    @PositiveOrZero(message = "O número de funcionários ser zero ou positivo")
-    @NotNull(message = "O número de funcionários não pode ser nulo")
+    @PositiveOrZero
+    @NotNull
     private Integer numeroFuncionarios;
 
     @Enumerated(EnumType.STRING)

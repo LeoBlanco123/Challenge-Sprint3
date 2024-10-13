@@ -1,6 +1,7 @@
 package br.com.fiap.challenge3.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,13 +21,13 @@ public class HistoricoInteracoes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "A proposta negocio não pode ser nulo")
+    @NotBlank
     private String propostaNegocio;
 
     @Enumerated(EnumType.STRING)
     private OpcoesContrato contratoAssinado;
 
-    @NotNull(message = "O feedback sobre os serviços e produtos não pode ser nulo")
+    @NotBlank
     private String feedbackServicosProdutos;
 
     @ManyToOne(fetch = FetchType.LAZY)

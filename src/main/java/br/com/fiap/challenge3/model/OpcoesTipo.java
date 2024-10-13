@@ -1,12 +1,15 @@
 package br.com.fiap.challenge3.model;
 
+import lombok.Getter;
+
+@Getter
 public enum OpcoesTipo {
-    SOCIEDADE_EMPRESARIA_LIMITADA("Sociedade Empresária Limitada"),
-    MICROEMPREENDEDOR_INDIVIDUAL("Microempreendedor Individual"),
-    SOCIEDADE_LIMITADA_UNIPESSOAL("Sociedade Limitada Unipessoal"),
-    SOCIEDADE_ANONIMA("Sociedade Anônima"),
-    EMPRESARIO_INDIVIDUAL("Empresário Individual"),
-    SOCIEDADE_SIMPLES("Sociedade Simples");
+    SOCIEDADE_EMPRESARIA_LIMITADA("tipo.empresa.sociedade_limitada"),
+    MICROEMPREENDEDOR_INDIVIDUAL("tipo.empresa.microempreendedor_individual"),
+    SOCIEDADE_LIMITADA_UNIPESSOAL("tipo.empresa.sociedade_limitada_unipessoal"),
+    SOCIEDADE_ANONIMA("tipo.empresa.sociedade_anonima"),
+    EMPRESARIO_INDIVIDUAL("tipo.empresa.empresario_individual"),
+    SOCIEDADE_SIMPLES("tipo.empresa.sociedade_simples");
 
     private final String descricao;
 
@@ -14,8 +17,8 @@ public enum OpcoesTipo {
         this.descricao = descricao;
     }
 
-    public String getDescricao() {
+    @Override
+    public String toString() {
         return descricao;
     }
 }
-

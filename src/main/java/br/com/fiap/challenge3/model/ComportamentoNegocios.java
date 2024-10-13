@@ -3,6 +3,7 @@ package br.com.fiap.challenge3.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,15 +23,15 @@ public class ComportamentoNegocios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "A interação não pode ser nulo")
+    @NotNull
     private Long interacoesPlataforma;
 
-    @Min(value = 0, message = "A frequência de uso deve ser zero ou positiva")
-    @Max(value = 10, message = "A frequência de uso deve ser menor ou igual a 10")
-    @NotNull(message = "A frequência de uso não pode ser nulo")
+    @Min(value = 0)
+    @Max(value = 10)
+    @NotNull
     private Long frequenciaUso;
 
-    @NotNull(message = "O feedback não pode ser nulo")
+    @NotBlank
     private String feedback;
 
     @Enumerated(EnumType.STRING)

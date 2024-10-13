@@ -38,7 +38,7 @@ public class EmpresasController {
 
     @GetMapping("/nova")
     public ModelAndView novaEmpresaPage() {
-        ModelAndView mv = new ModelAndView("nova_empresa");
+        ModelAndView mv = new ModelAndView("criar_empresa");
         mv.addObject("empresa", new Empresas());
         mv.addObject("lista_setores", OpcoesSetor.values());
         mv.addObject("lista_tipos", OpcoesTipo.values());
@@ -49,7 +49,7 @@ public class EmpresasController {
     @PostMapping("/salvar")
     public ModelAndView salvarEmpresa(@Valid @ModelAttribute("empresa") Empresas empresa, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            ModelAndView mv = new ModelAndView("nova_empresa");
+            ModelAndView mv = new ModelAndView("criar_empresa");
             mv.addObject("empresa", empresa);
             mv.addObject("lista_setores", OpcoesSetor.values());
             mv.addObject("lista_tipos", OpcoesTipo.values());

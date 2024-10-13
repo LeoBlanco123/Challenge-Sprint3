@@ -20,17 +20,17 @@ public class DesempenhoFinanceiro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @PositiveOrZero(message = "A receita deve ser zero ou positivo")
-    @NotNull(message = "A receita é obrigatória")
+    @PositiveOrZero
+    @NotNull
     private Double receita;
 
-    @PositiveOrZero(message = "O lucro deve ser zero ou positivo")
-    @NotNull(message = "O lucro é obrigatório")
+    @PositiveOrZero
+    @NotNull
     private Double lucro;
 
-    @DecimalMin(value = "0.0", inclusive = true, message = "O crescimento não pode ser menor que 0%")
-    @DecimalMax(value = "100.0", inclusive = true, message = "O crescimento não pode ser maior que 100%")
-    @NotNull(message = "O crescimento é obrigatório")
+    @DecimalMin(value = "0.0")
+    @DecimalMax(value = "100.0")
+    @NotNull
     private Double crescimento;
 
     @ManyToOne(fetch = FetchType.LAZY)

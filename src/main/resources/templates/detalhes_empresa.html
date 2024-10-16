@@ -86,24 +86,24 @@
     <!-- Lista de Desempenho Financeiro -->
     <div class="card">
         <div class="card-content">
-            <span class="card-title" th:text="#{desempenho.titulo}">Desempenho Financeiro</span>
+            <span class="card-title" th:text="#{financeiro.titulo}">Desempenho Financeiro</span>
             <div class="collection">
                 <a href="#" class="collection-item active" th:text="#{gasto.ano}">Ano: 2024</a>
                 <div th:each="desempenho : ${empresa.desempenhos}">
                     <p class="collection-item">
-                        <span th:text="#{desempenho.receita}  + ' ' + ${desempenho.receita}"></span><br>
-                        <span th:text="#{desempenho.lucro}  + ' ' + ${desempenho.lucro}"></span><br>
-                        <span th:text="#{desempenho.crescimento}  + ' ' + ${desempenho.crescimento}"></span><br>
+                        <span th:text="#{financeiro.receita}  + ' ' + ${desempenho.receita}"></span><br>
+                        <span th:text="#{financeiro.lucro}  + ' ' + ${desempenho.lucro}"></span><br>
+                        <span th:text="#{financeiro.crescimento}  + ' ' + ${desempenho.crescimento}"></span><br>
                     </p>
                     <div class="secondary-content">
-                        <a class="btn-small waves-effect waves-light orange" th:href="@{/desempenho/{id}/editar(id=${desempenho.id})}" th:text="#{desempenho.editar}">Editar</a>
+                        <a class="btn-small waves-effect waves-light orange" th:href="@{/desempenho/{id}/editar(id=${desempenho.id})}" th:text="#{financeiro.editar}">Editar</a>
                         <form th:action="@{/desempenho/{id}/remover(id=${desempenho.id})}" method="post" onsubmit="return confirm('Você tem certeza que deseja deletar este desempenho?');">
-                            <button type="submit" class="btn-small waves-effect waves-light red" th:text="#{desempenho.deletar}">Deletar</button>
+                            <button type="submit" class="btn-small waves-effect waves-light red" th:text="#{financeiro.deletar}">Deletar</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <a class="btn waves-effect waves-light green" th:if="${showCreateButtonDesempenho}" th:href="@{/desempenho/novo(idEmpresa=${empresa.id})}" th:text="#{desempenho.criar_novo}">Criar Novo Desempenho Financeiro</a>
+            <a class="btn waves-effect waves-light green" th:if="${showCreateButtonDesempenho}" th:href="@{/desempenho/novo(idEmpresa=${empresa.id})}" th:text="#{financeiro.criar_novo}">Criar Novo Desempenho Financeiro</a>
         </div>
     </div>
 
@@ -134,25 +134,25 @@
     <!-- Comportamento de Negócios -->
     <div class="card">
         <div class="card-content">
-            <span class="card-title" th:text="#{comportamento.titulo}">Comportamento de Negócios</span>
+            <span class="card-title" th:text="#{negocios.titulo}">Comportamento de Negócios</span>
             <div class="collection">
                 <a href="#" class="collection-item active" th:text="#{gasto.ano}">Ano: 2024</a>
                 <div th:each="comportamento : ${empresa.comportamentos}">
                     <p class="collection-item">
-                        <span th:text="#{comportamento.interacoes}  + ' ' + ${comportamento.interacoesPlataforma}"></span><br>
-                        <span th:text="#{comportamento.frequencia}  + ' ' + ${comportamento.frequenciaUso}"></span><br>
-                        <span th:text="#{comportamento.feedback}  + ' ' + ${comportamento.feedback}"></span><br>
-                        <span th:text="#{comportamento.uso_recursos} + ' ' + #{${comportamento.usoRecursosEspecificos.chave}}"></span><br>
+                        <span th:text="#{negocios.interacoes}  + ' ' + ${comportamento.interacoesPlataforma}"></span><br>
+                        <span th:text="#{negocios.frequencia}  + ' ' + ${comportamento.frequenciaUso}"></span><br>
+                        <span th:text="#{negocios.feedback}  + ' ' + ${comportamento.feedback}"></span><br>
+                        <span th:text="#{negocios.uso_recursos} + ' ' + #{${comportamento.usoRecursosEspecificos.chave}}"></span><br>
                     </p>
                     <div class="secondary-content">
-                        <a class="btn-small waves-effect waves-light orange" th:href="@{/comportamento/{id}/editar(id=${comportamento.id})}" th:text="#{comportamento.editar}">Editar</a>
+                        <a class="btn-small waves-effect waves-light orange" th:href="@{/comportamento/{id}/editar(id=${comportamento.id})}" th:text="#{negocios.editar}">Editar</a>
                         <form th:action="@{/comportamento/{id}/remover(id=${comportamento.id})}" method="post" onsubmit="return confirm('Você tem certeza que deseja deletar este comportamento?');">
-                            <button type="submit" class="btn-small waves-effect waves-light red" th:text="#{comportamento.deletar}">Deletar</button>
+                            <button type="submit" class="btn-small waves-effect waves-light red" th:text="#{negocios.deletar}">Deletar</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <a class="btn waves-effect waves-light green" th:if="${showCreateButtonComportamento}" th:href="@{/comportamento/novo(idEmpresa=${empresa.id})}" th:text="#{comportamento.criar_novo}">Criar Novo Comportamento de Negócios</a>
+            <a class="btn waves-effect waves-light green" th:if="${showCreateButtonComportamento}" th:href="@{/comportamento/novo(idEmpresa=${empresa.id})}" th:text="#{negocios.criar_novo}">Criar Novo Comportamento de Negócios</a>
         </div>
     </div>
 

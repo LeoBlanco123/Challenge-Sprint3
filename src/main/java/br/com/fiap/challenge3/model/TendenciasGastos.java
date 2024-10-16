@@ -20,17 +20,17 @@ public class TendenciasGastos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Min(value = 1900)
-    @Max(value = 2025)
-    @NotNull
+    @Min(value = 1900, message = "{tendencia.ano.min}")
+    @Max(value = 2025, message = "{tendencia.ano.max}")
+    @NotNull(message = "{tendencia.ano.notNull}")
     private Integer ano;
 
-    @PositiveOrZero
-    @NotNull
+    @PositiveOrZero(message = "{tendencia.gastoMarketing.positive}")
+    @NotNull(message = "{tendencia.gastoMarketing.notNull}")
     private Double gastoMarketing;
 
-    @PositiveOrZero
-    @NotNull
+    @PositiveOrZero(message = "{tendencia.gastoAutomacao.positive}")
+    @NotNull(message = "{tendencia.gastoAutomacao.notNull}")
     private Double gastoAutomacao;
 
     @ManyToOne(fetch = FetchType.LAZY)

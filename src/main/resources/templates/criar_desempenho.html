@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <title th:text="#{titulo.Desempenho}"></title>
+    <title th:text="#{desempenho.titulo}"></title>
 
     <style>
         .form-container {
@@ -34,7 +34,7 @@
 <body>
 <div class="container mt-5">
     <div class="row">
-        <h1 class="mb-4 text-center" th:text="#{titulo.Desempenho}"></h1>
+        <h1 class="mb-4 text-center" th:text="#{desempenho.titulo}"></h1>
     </div>
     <div class="row">
         <div class="col-md-8 offset-md-2 form-container">
@@ -42,23 +42,23 @@
 
                 <!-- Receita -->
                 <div class="mb-3">
-                    <label for="receita" class="form-label" th:text="#{label.receita}"></label>
-                    <input type="text" id="receita" th:field="*{receita}" class="form-control" th:errorclass="is-invalid"/>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('receita')}" th:text="#{erro.receita}"></div>
+                    <label for="receita" class="form-label" th:text="#{desempenho.receita}">Qual é a receita total?</label>
+                    <input type="number" step="0.01" id="receita" th:field="*{receita}" class="form-control" th:errorclass="is-invalid"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('receita')}" th:errors="*{receita}">Receita inválida</div>
                 </div>
 
                 <!-- Lucro -->
                 <div class="mb-3">
-                    <label for="lucro" class="form-label" th:text="#{label.lucro}"></label>
+                    <label for="lucro" class="form-label" th:text="#{desempenho.lucro}">Qual foi o lucro em reais (R$)?</label>
                     <input type="number" step="0.01" class="form-control" id="lucro" th:field="*{lucro}" th:errorclass="is-invalid"/>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('lucro')}" th:text="#{erro.lucro}"></div>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('lucro')}" th:errors="*{lucro}">Lucro inválido</div>
                 </div>
 
                 <!-- Crescimento -->
                 <div class="mb-3">
-                    <label for="crescimento" class="form-label" th:text="#{label.crescimento}"></label>
+                    <label for="crescimento" class="form-label" th:text="#{desempenho.crescimento}">Qual foi o crescimento percentual?</label>
                     <input type="number" step="0.01" class="form-control" id="crescimento" th:field="*{crescimento}" th:errorclass="is-invalid"/>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('crescimento')}" th:text="#{erro.crescimento}"></div>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('crescimento')}" th:errors="*{crescimento}">Crescimento inválido</div>
                 </div>
 
                 <!-- Campo oculto para ID da Empresa -->

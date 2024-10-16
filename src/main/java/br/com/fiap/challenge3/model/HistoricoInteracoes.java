@@ -21,13 +21,13 @@ public class HistoricoInteracoes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "{historico.proposta.notBlank}")
     private String propostaNegocio;
 
     @Enumerated(EnumType.STRING)
     private OpcoesContrato contratoAssinado;
 
-    @NotBlank
+    @NotBlank(message = "{historico.feedback.notBlank}")
     private String feedbackServicosProdutos;
 
     @ManyToOne(fetch = FetchType.LAZY)

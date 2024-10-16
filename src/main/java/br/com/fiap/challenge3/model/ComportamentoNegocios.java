@@ -1,10 +1,7 @@
 package br.com.fiap.challenge3.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,15 +20,16 @@ public class ComportamentoNegocios {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "{comportamento.interacoes.notNull}")
+    @PositiveOrZero(message = "{comportamento.interacoes.positive}")
     private Long interacoesPlataforma;
 
-    @Min(value = 0)
-    @Max(value = 10)
-    @NotNull
+    @Min(value = 0, message = "{comportamento.frequencia.min}")
+    @Max(value = 10, message = "{comportamento.frequencia.max}")
+    @NotNull(message = "{comportamento.frequencia.notNull}")
     private Long frequenciaUso;
 
-    @NotBlank
+    @NotBlank(message = "{comportamento.feedback.notBlank}")
     private String feedback;
 
     @Enumerated(EnumType.STRING)

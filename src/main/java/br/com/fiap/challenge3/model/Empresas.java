@@ -26,8 +26,8 @@ public class Empresas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 4, max = 255)
-    @NotEmpty
+    @Size(min = 4, max = 255, message = "{empresa.nome.size}")
+    @NotEmpty(message = "{empresa.nome.notEmpty}")
     private String nome;
 
     @Enumerated(EnumType.STRING)
@@ -36,11 +36,11 @@ public class Empresas {
     @Enumerated(EnumType.STRING)
     private OpcoesSetor setor;
 
-    @NotEmpty
+    @NotEmpty(message = "{empresa.loc.notEmpty}")
     private String localizacaoGeografica;
 
-    @PositiveOrZero
-    @NotNull
+    @PositiveOrZero(message = "{empresa.numFun.positive}")
+    @NotNull(message = "{empresa.numFun.notEmpty}")
     private Integer numeroFuncionarios;
 
     @Enumerated(EnumType.STRING)

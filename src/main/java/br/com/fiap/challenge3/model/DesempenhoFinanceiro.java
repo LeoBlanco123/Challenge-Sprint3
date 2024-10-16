@@ -20,17 +20,17 @@ public class DesempenhoFinanceiro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @PositiveOrZero
-    @NotNull
+    @PositiveOrZero(message = "{desempenho.receita.positive}")
+    @NotNull(message = "{desempenho.receita.notNull}")
     private Double receita;
 
-    @PositiveOrZero
-    @NotNull
+    @PositiveOrZero(message = "{desempenho.lucro.positive}")
+    @NotNull(message = "{desempenho.lucro.notNull}")
     private Double lucro;
 
-    @DecimalMin(value = "0.0")
-    @DecimalMax(value = "100.0")
-    @NotNull
+    @DecimalMin(value = "0.0", inclusive = true, message = "{desempenho.crescimento.min}")
+    @DecimalMax(value = "100.0", inclusive = true, message = "{desempenho.crescimento.max}")
+    @NotNull(message = "{desempenho.crescimento.notNull}")
     private Double crescimento;
 
     @ManyToOne(fetch = FetchType.LAZY)

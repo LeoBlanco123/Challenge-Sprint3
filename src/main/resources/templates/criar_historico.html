@@ -42,38 +42,38 @@
 
                 <!-- Proposta de Negócio -->
                 <div class="mb-3">
-                    <label for="propostaNegocio" class="form-label" th:text="#{historico.proposta_negocio}"></label>
+                    <label for="propostaNegocio" class="form-label" th:text="#{historico.proposta_negocio}">Qual é a proposta de negócio?</label>
                     <input type="text" id="propostaNegocio" th:field="*{propostaNegocio}" class="form-control" th:errorclass="is-invalid"/>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('propostaNegocio')}" th:text="#{propostaNegocio.invalida}"></div>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('propostaNegocio')}" th:errors="*{propostaNegocio}">Proposta de negócio inválida</div>
                 </div>
 
                 <!-- Contrato Assinado -->
                 <div class="mb-3">
-                    <label for="contratoAssinado" class="form-label" th:text="#{historico.contrato_assinado}"></label>
+                    <label for="contratoAssinado" class="form-label" th:text="#{historico.contrato_assinado}">Contrato Assinado:</label>
                     <select id="contratoAssinado" th:field="*{contratoAssinado}" class="form-select" th:errorclass="is-invalid">
                         <option value="" disabled th:text="#{historico.selecione_opcao}"></option>
                         <option th:each="opcao : ${opcoesContrato}"
                                 th:value="${opcao.name()}"
                                 th:text="#{${opcao.descricao}}"></option>
                     </select>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('contratoAssinado')}" th:text="#{contratoAssinado.invalido}"></div>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('contratoAssinado')}" th:errors="*{contratoAssinado}">Opção de contrato inválida</div>
                 </div>
 
                 <!-- Feedback sobre Serviços e Produtos -->
                 <div class="form-group">
-                    <label for="feedbackServicosProdutos" class="form-label" th:text="#{historico.feedback_servicos_produtos}"></label>
+                    <label for="feedbackServicosProdutos" class="form-label" th:text="#{historico.feedback_servicos_produtos}">Opinião sobre Serviços e Produtos</label>
                     <textarea id="feedbackServicosProdutos" class="form-control" th:field="*{feedbackServicosProdutos}" th:errorclass="is-invalid"></textarea>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('feedbackServicosProdutos')}" th:text="#{feedbackServicosProdutos.invalido}"></div>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('feedbackServicosProdutos')}" th:errors="*{feedbackServicosProdutos}">Feedback inválido</div>
                 </div>
 
                 <!-- Campo oculto para ID da Empresa -->
                 <input type="hidden" th:field="*{empresa.id}">
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('empresa.id')}" th:text="#{empresa.id.invalido}"></div>
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('empresa.id')}" th:errors="*{empresa.id}"></div>
 
                 <!-- Botões -->
                 <div class="d-grid gap-2 mt-4"> <!-- Adicionada a classe mt-4 -->
-                    <button type="submit" class="btn btn-primary" th:text="#{historico.salvar}">Salvar</button>
-                    <a class="btn btn-secondary" th:href="@{/empresas/{id}/detalhes(id=${historico.empresa.id})}" th:text="#{historico.cancelar}">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" th:text="#{botao.salvar}">Salvar</button>
+                    <a class="btn btn-secondary" th:href="@{/empresas/{id}/detalhes(id=${historico.empresa.id})}" th:text="#{botao.cancelar}">Cancelar</a>
                 </div>
             </form>
         </div>

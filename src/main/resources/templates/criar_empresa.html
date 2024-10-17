@@ -84,7 +84,7 @@
 
                 <!-- Tipo de Empresa -->
                 <div class="mb-3">
-                    <label for="tipoEmpresa" class="form-label" th:text="#{empresa.tipoEmpresa=}">Qual é o tipo da empresa?</label>
+                    <label for="tipoEmpresa" class="form-label" th:text="#{empresa.tipoEmpresa}">Qual é o tipo da empresa?</label>
                     <select class="form-select" id="tipoEmpresa" th:field="*{tipoEmpresa}" th:errorclass="is-invalid">
                         <option value="" disabled selected>Selecione um tipo</option>
                         <option th:each="tipo : ${lista_tipos}"

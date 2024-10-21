@@ -7,11 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-
 @Entity
 public class DesempenhoFinanceiro {
 
@@ -35,4 +30,55 @@ public class DesempenhoFinanceiro {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")
     private Empresas empresa;
+
+    public DesempenhoFinanceiro() {
+    }
+
+    public DesempenhoFinanceiro(Long id, Double receita, Double lucro, Double crescimento, Empresas empresa) {
+        this.id = id;
+        this.receita = receita;
+        this.lucro = lucro;
+        this.crescimento = crescimento;
+        this.empresa = empresa;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Double getReceita() {
+        return receita;
+    }
+
+    public void setReceita(Double receita) {
+        this.receita = receita;
+    }
+
+    public Double getLucro() {
+        return lucro;
+    }
+
+    public void setLucro(Double lucro) {
+        this.lucro = lucro;
+    }
+
+    public Double getCrescimento() {
+        return crescimento;
+    }
+
+    public void setCrescimento(Double crescimento) {
+        this.crescimento = crescimento;
+    }
+
+    public Empresas getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresas empresa) {
+        this.empresa = empresa;
+    }
 }

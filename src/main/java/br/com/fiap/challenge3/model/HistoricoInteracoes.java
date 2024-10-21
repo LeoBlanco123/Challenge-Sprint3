@@ -8,11 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-
 @Entity
 public class HistoricoInteracoes {
 
@@ -32,4 +27,55 @@ public class HistoricoInteracoes {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")
     private Empresas empresa;
+
+    public HistoricoInteracoes() {
+    }
+
+    public HistoricoInteracoes(Long id, String propostaNegocio, OpcoesContrato contratoAssinado, String feedbackServicosProdutos, Empresas empresa) {
+        this.id = id;
+        this.propostaNegocio = propostaNegocio;
+        this.contratoAssinado = contratoAssinado;
+        this.feedbackServicosProdutos = feedbackServicosProdutos;
+        this.empresa = empresa;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPropostaNegocio() {
+        return propostaNegocio;
+    }
+
+    public void setPropostaNegocio(String propostaNegocio) {
+        this.propostaNegocio = propostaNegocio;
+    }
+
+    public OpcoesContrato getContratoAssinado() {
+        return contratoAssinado;
+    }
+
+    public void setContratoAssinado(OpcoesContrato contratoAssinado) {
+        this.contratoAssinado = contratoAssinado;
+    }
+
+    public String getFeedbackServicosProdutos() {
+        return feedbackServicosProdutos;
+    }
+
+    public void setFeedbackServicosProdutos(String feedbackServicosProdutos) {
+        this.feedbackServicosProdutos = feedbackServicosProdutos;
+    }
+
+    public Empresas getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresas empresa) {
+        this.empresa = empresa;
+    }
 }

@@ -7,11 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-
 @Entity
 public class ComportamentoNegocios {
 
@@ -37,4 +32,64 @@ public class ComportamentoNegocios {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")
     private Empresas empresa;
+
+    public ComportamentoNegocios() {
+    }
+
+    public ComportamentoNegocios(Long id, Long interacoesPlataforma, Long frequenciaUso, String feedback, OpcoesRecursos usoRecursosEspecificos, Empresas empresa) {
+        this.id = id;
+        this.interacoesPlataforma = interacoesPlataforma;
+        this.frequenciaUso = frequenciaUso;
+        this.feedback = feedback;
+        this.usoRecursosEspecificos = usoRecursosEspecificos;
+        this.empresa = empresa;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getInteracoesPlataforma() {
+        return interacoesPlataforma;
+    }
+
+    public void setInteracoesPlataforma(Long interacoesPlataforma) {
+        this.interacoesPlataforma = interacoesPlataforma;
+    }
+
+    public Long getFrequenciaUso() {
+        return frequenciaUso;
+    }
+
+    public void setFrequenciaUso(Long frequenciaUso) {
+        this.frequenciaUso = frequenciaUso;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public OpcoesRecursos getUsoRecursosEspecificos() {
+        return usoRecursosEspecificos;
+    }
+
+    public void setUsoRecursosEspecificos(OpcoesRecursos usoRecursosEspecificos) {
+        this.usoRecursosEspecificos = usoRecursosEspecificos;
+    }
+
+    public Empresas getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresas empresa) {
+        this.empresa = empresa;
+    }
 }

@@ -8,11 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-
 @Entity
 public class TendenciasGastos {
 
@@ -36,6 +31,56 @@ public class TendenciasGastos {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empresa")
     private Empresas empresa;
+
+    public TendenciasGastos() {
+    }
+
+    public TendenciasGastos(Long id, Integer ano, Double gastoMarketing, Double gastoAutomacao, Empresas empresa) {
+        this.id = id;
+        this.ano = ano;
+        this.gastoMarketing = gastoMarketing;
+        this.gastoAutomacao = gastoAutomacao;
+        this.empresa = empresa;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getAno() {
+        return ano;
+    }
+
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
+
+    public Double getGastoMarketing() {
+        return gastoMarketing;
+    }
+
+    public void setGastoMarketing(Double gastoMarketing) {
+        this.gastoMarketing = gastoMarketing;
+    }
+
+    public Double getGastoAutomacao() {
+        return gastoAutomacao;
+    }
+
+    public void setGastoAutomacao(Double gastoAutomacao) {
+        this.gastoAutomacao = gastoAutomacao;
+    }
+
+    public Empresas getEmpresa() {
+        return empresa;
+    }
+    public void setEmpresa(Empresas empresa) {
+        this.empresa = empresa;
+    }
 }
 
 

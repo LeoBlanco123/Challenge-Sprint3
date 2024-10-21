@@ -4,6 +4,8 @@ import br.com.fiap.challenge3.model.*;
 import br.com.fiap.challenge3.repository.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,8 @@ public class EmpresasController {
     @Autowired
     private EmpresasRepository empresasRepository;
     @Autowired
+    private UsuarioRepository usuarioRepository;
+    @Autowired
     private TendenciasGastosRepository tendenciasGastosRepository;
     @Autowired
     private DesempenhoFinanceiroRepository desempenhoFinanceiroRepository;
@@ -30,11 +34,22 @@ public class EmpresasController {
 
     @GetMapping
     public ModelAndView listarEmpresas() {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+
         List<Empresas> listaEmpresas = empresasRepository.findAll();
+
         ModelAndView mv = new ModelAndView("index");
         mv.addObject("empresas", listaEmpresas);
+
+        Optional<Usuario> user = usuarioRepository.findByUsername(username);
+
+        user.ifPresent(usuario -> mv.addObject("nome_usuario", usuario.getNome()));
+
         return mv;
     }
+
 
     @GetMapping("/nova")
     public ModelAndView novaEmpresaPage() {

@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Builder
 
 @Entity
-@Table(name = "HistoricoInteracoes")
 public class HistoricoInteracoes {
 
     @Id

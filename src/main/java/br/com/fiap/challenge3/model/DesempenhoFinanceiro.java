@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 
 @Entity
-@Table(name = "DesempenhoFinanceiro")
 public class DesempenhoFinanceiro {
 
     @Id

@@ -1,4 +1,7 @@
 <div th:fragment="idioma(pagina)">
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" style="float: right">Sair</button>
+    </form><br>
     <a th:href="@{__${pagina}__ (lang='pt')}">
         <img src="https://cdn-icons-png.flaticon.com/512/206/206597.png" alt="Português" style="width: 30px; height: 30px;"/>
     </a><br>
